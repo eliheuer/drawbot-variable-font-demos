@@ -1,7 +1,7 @@
 # Drawbot Variable Font Demos
 
 
-This repo containsin [DrawBot](http://www.drawbot.com/) script demos for use with variable fonts.
+This repo contains [DrawBot](http://www.drawbot.com/) demo scripts for use with variable fonts.
  
-![screenshot](https://rawgithub.com/eliheuer/drawbot-variable-font-demos/documentation/screenshots/screenshot.png)
+![screenshot](https://github.com/eliheuer/drawbot-variable-font-demos/blob/master/documentation/screenshots/screenshot.png)
 
