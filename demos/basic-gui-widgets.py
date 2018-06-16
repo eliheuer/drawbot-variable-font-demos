@@ -25,7 +25,7 @@ margin     = 64  # distance from edge of canvas
 def grid():
     # draw the grid
     fill(None)
-    stroke(0)
+    stroke(0.75)
     strokeWidth(1)
     lineCap("round")
     lineJoin("round")
@@ -51,17 +51,17 @@ def grid():
 def main():
     
     # Uncomment to draw grid
-    # grid()
+    grid()
     
     # Set text fill
-    fill(0)
-    stroke(None)
+    #fill(0)
+    stroke(255, 0, 0)
     
     # Magic 
     fontVariations(wght=slider)
     
     # Draw text
-    text(input_text, (100, 450))
+    text(input_text, 70 , 448)
 
 if __name__ == "__main__":  
     main()
