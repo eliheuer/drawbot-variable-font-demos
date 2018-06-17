@@ -3,7 +3,8 @@ size(1024, 1024)
 
 # Fonts
 font("fonts/WoodbineGX.ttf")
-fontSize(140)
+fontSize(170)
+
 # Set axis from font
 for axis, data in listFontVariations().items():
     print((axis, data))
@@ -15,7 +16,7 @@ Variable([
 ], globals())
 
 # console output, uncomment for additional info
-# print("Slider-:",int(slider))
+print("Slider-:",int(slider))
 print("Text---:",input_text)
 
 # Set grid variables
@@ -25,10 +26,9 @@ margin     = 64  # distance from edge of canvas
 def grid():
     # draw the grid
     fill(None)
-    stroke(0.75)
+    # stroke(0.75)
+    stroke(1, 0.4, 0.3,)
     strokeWidth(1)
-    lineCap("round")
-    lineJoin("round")
   
     # grid X-axis
     stepx  = -64  # step in sequence on x axis             
@@ -49,19 +49,19 @@ def grid():
         restore()
 
 def main():
-    
     # Uncomment to draw grid
     grid()
-    
     # Set text fill
-    #fill(0)
-    stroke(255, 0, 0)
-    
-    # Magic 
-    fontVariations(wght=slider)
-    
-    # Draw text
-    text(input_text, 70 , 448)
+    fill(0)
+    strokeWidth(2)
+    stroke(None)
+
+    for i in range(1,6):
+        # Magic 
+        fontVariations(wght=(slider-(i*32)))
+        # Draw text
+        text(input_text, 160, (832-(i*128)))
+
 
 if __name__ == "__main__":  
     main()
