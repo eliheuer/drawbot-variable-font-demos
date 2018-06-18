@@ -3,7 +3,7 @@ size(1024, 1024)
 
 # Fonts
 font("fonts/WoodbineGX.ttf")
-fontSize(170)
+fontSize(140)
 
 # Set axis from font
 for axis, data in listFontVariations().items():
@@ -55,12 +55,12 @@ def main():
     fill(0)
     strokeWidth(2)
     stroke(None)
-
+    tracking(None)
     for i in range(1,6):
         # Magic 
         fontVariations(wght=(slider-(i*32)))
         # Draw text
-        text(input_text, 160, (832-(i*128)))
+        text(input_text, 205, (832-(i*128)))
 
 
 if __name__ == "__main__":  
