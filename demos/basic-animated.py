@@ -7,6 +7,7 @@ import math
 W, H, M, F = 1024, 1024, 128, 32
 
 # Load font and print font info:
+# print(installedFonts(supportsCharacters=None))
 font("fonts/WoodbineGX.ttf")
 for axis, data in listFontVariations().items():
     print((axis, data))  # Get axis info from font
@@ -26,36 +27,43 @@ def grid(inc):
 
 
 # Page loop
-for frame in range(24):
+for frame in range(48):
     newPage(W, H)
     fill(0)           # Background color
     rect(0, 0, W, H)  # Draw the background
 
     # Draw the grid
-    grid(64)
+    # grid(64)
 
     # Basic Style
     stroke(None)
     fill(1)
 
-    # Animation loop (cos of 0 --> 6.28)
-    varAnim = (((cos(frame/4))+1)/2)
-    print("varAnim=", varAnim)
+    # Calculate the weight, stepping through 360 degrees by frames
+    angle = (frame/48)*360
+    varAnim = (cos(radians(angle))*0.5+0.5)*100
+    print("frame = ", frame)
+    print("angle = ", angle)
+    print("varAnim = ", varAnim)
+    print(" ")
+
+    # Set variations
+    varWght = 100+varAnim
+    fontVariations(wght=varWght)
 
     # Iterate through weight
     for i in range(6):
-        # Set variations
-        varWght = 100+(i*10)
-        fontVariations(wght=varWght)
-
         # Draw headline text
+        fill(1)
         font("fonts/WoodbineGX.ttf")
         fontSize(128)
-        text("LANGUAGE", (M+(M-40), (785)-(i*128)))
+        text("LANGUAGE", (M-2, (785)-(i*128)))
 
         # Draw secondary text
-        font("Helvetica")
-        fontSize(32)
-        text("400", (M+664, (785)-(i*128)))
+        fill(1, 0, 0)
+        font("InputMonoCompressed-Light")
+        fontSize(128)
+        text(str(int(varWght)), ((W-64)-(M*2), (((H+16)-(M*2)))-(i*128)))
 
+# Save GIF
 saveImage("basic-animated.gif")
